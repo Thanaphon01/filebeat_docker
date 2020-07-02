@@ -3,10 +3,12 @@
 #    path: ${path.config}/modules.d/*.yml
 #    reload.enabled: false
 filebeat.inputs:
-- type: container
+#- type: container
+#  paths:
+#    - '/var/lib/docker/containers/*/*.log'
+- type: log
   paths:
-    - '/var/lib/docker/containers/*/*.log'
-
+    - '/home/ec2-user/amb_redis_tar_latest/logs/*/*.log'
 
 processors:
 - add_cloud_metadata: ~
